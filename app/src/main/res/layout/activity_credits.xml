@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreditsActivity">
+    tools:context=".CreditsActivity"
+    android:background="@color/black">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSuperior"
-        android:layout_width="416dp"
-        android:layout_height="283dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="411dp"
+        android:layout_height="725dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
