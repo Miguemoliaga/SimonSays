@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CreditsActivity extends AppCompatActivity {
 
-    private static final float MILLISECONDS_PER_INCH = 1000f;
+    private static final float MILLISECONDS_PER_INCH = 1200f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,45 +24,37 @@ public class CreditsActivity extends AppCompatActivity {
     }
 
     public void inicializaElementosListado(ArrayList<String> elementosSuperiores) {
-        elementosSuperiores.add(" Amparo");
-        elementosSuperiores.add(" Manuel");
-        elementosSuperiores.add(" Rosa");
-        elementosSuperiores.add(" Davinia");
-        elementosSuperiores.add(" Ángel");
-        elementosSuperiores.add(" Óscar");
-        elementosSuperiores.add(" Nerea");
-        elementosSuperiores.add(" Silvia");
-        elementosSuperiores.add(" Estrella");
-        elementosSuperiores.add(" José");
-        elementosSuperiores.add(" Francisco");
-        elementosSuperiores.add(" Daniela");
-        elementosSuperiores.add(" Triana");
-        elementosSuperiores.add(" Amparo");
-        elementosSuperiores.add(" Manuel");
-        elementosSuperiores.add(" Rosa");
-        elementosSuperiores.add(" Davinia");
-        elementosSuperiores.add(" Ángel");
-        elementosSuperiores.add(" Óscar");
-        elementosSuperiores.add(" Nerea");
-        elementosSuperiores.add(" Silvia");
-        elementosSuperiores.add(" Estrella");
-        elementosSuperiores.add(" José");
-        elementosSuperiores.add(" Francisco");
-        elementosSuperiores.add(" Daniela");
-        elementosSuperiores.add(" Triana");
-        elementosSuperiores.add(" Amparo");
-        elementosSuperiores.add(" Manuel");
-        elementosSuperiores.add(" Rosa");
-        elementosSuperiores.add(" Davinia");
-        elementosSuperiores.add(" Ángel");
-        elementosSuperiores.add(" Óscar");
-        elementosSuperiores.add(" Nerea");
-        elementosSuperiores.add(" Silvia");
-        elementosSuperiores.add(" Estrella");
-        elementosSuperiores.add(" José");
-        elementosSuperiores.add(" Francisco");
-        elementosSuperiores.add(" Daniela");
-        elementosSuperiores.add(" Triana");
+        elementosSuperiores.add("DIRECTOR");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("PRODUCTOR");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("WRITTEN BY");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("CHARACTER DESIGNER");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("ORIGINAL IDEA");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("IMAGE DIRECTION");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("EDITED BY");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("CASTING BY");
+        elementosSuperiores.add("MIGUEL MARTINEZ");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("ORIGINAL SOUNDTRACK");
+        elementosSuperiores.add("PHAROAHE MONCH");
+        elementosSuperiores.add(" ");
+        elementosSuperiores.add("SAID BY");
+        elementosSuperiores.add("SIMON");
+        elementosSuperiores.add(" ");
+
     }
 
     public Adapter getAdaptador (int idRecyclerView, ArrayList<String> lista){

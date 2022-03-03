@@ -1,6 +1,9 @@
 package com.mmartine.simonsays.fragments;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +48,26 @@ public class SoundFragment extends Fragment {
             }
         });
 
+        b_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               watchYoutubeVideo(getContext());
+            }
+        });
+
         return myView;
 
+
+    }
+    public static void watchYoutubeVideo(Context context){
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "T7Fy5w2klbg"));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + "T7Fy5w2klbg"));
+        try {
+            context.startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+            context.startActivity(webIntent);
+        }
     }
 
 }
