@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.SoundFragment"
     android:background="@color/black">
 
+    <Button
+        android:id="@+id/b_toff"
+        android:layout_width="183dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="236dp"
+        android:text="JUGAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/b_ton"
+        android:layout_width="183dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:text="CREDITOS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_toff" />
+
+    <Button
+        android:id="@+id/b_link"
+        android:layout_width="183dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_ton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

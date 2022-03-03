@@ -1,13 +1,12 @@
 package com.mmartine.simonsays.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+
 import androidx.fragment.app.Fragment;
 
 import com.mmartine.simonsays.CreditsActivity;
@@ -27,8 +26,8 @@ public class MainMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.menu_fragment, container, false);
-        enter = (Button) myView.findViewById(R.id.b_juego);
-        credits = (Button) myView.findViewById(R.id.b_creditos);
+        enter = (Button) myView.findViewById(R.id.b_toff);
+        credits = (Button) myView.findViewById(R.id.b_ton);
 
 
         credits.setOnClickListener(new View.OnClickListener() {
