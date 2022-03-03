@@ -34,14 +34,14 @@ public class SoundFragment extends Fragment {
         b_ton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().startService(new Intent(getContext(),MusicService.class));
+                getActivity().startService(new Intent(getActivity(),MusicService.class));
             }
         });
 
         b_toff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().startService(new Intent(getContext(),MusicService.class));
+                getActivity().startService(new Intent(getActivity(),MusicService.class));
             }
         });
 
