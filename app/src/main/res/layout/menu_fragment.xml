@@ -8,33 +8,33 @@
     tools:context=".fragments.MainMenuFragment">
 
     <Button
-        android:id="@+id/b_toff"
+        android:id="@+id/b_play"
         android:layout_width="183dp"
         android:layout_height="59dp"
         android:layout_marginTop="236dp"
-        android:text="JUGAR"
+        android:text="PLAY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/b_ton"
+        android:id="@+id/b_credits"
         android:layout_width="183dp"
         android:layout_height="59dp"
         android:layout_marginTop="40dp"
-        android:text="CREDITOS"
+        android:text="CREDITS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_toff" />
+        app:layout_constraintTop_toBottomOf="@+id/b_play" />
 
     <Button
-        android:id="@+id/b_link"
+        android:id="@+id/b_fsound"
         android:layout_width="183dp"
         android:layout_height="59dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:text="SOUND"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_ton" />
+        app:layout_constraintTop_toBottomOf="@+id/b_credits" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
