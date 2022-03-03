@@ -54,7 +54,6 @@ public class MainMenuFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast toast1 = Toast.makeText(getContext(), "Try to swipe left", Toast.LENGTH_SHORT);
-
                 toast1.show();
             }
         });

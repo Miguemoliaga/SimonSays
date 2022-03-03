@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 
 import com.mmartine.simonsays.MusicService;
@@ -37,6 +39,8 @@ public class SoundFragment extends Fragment {
         b_ton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast toast = Toast.makeText(getContext(), "Playing the music", Toast.LENGTH_SHORT);
+                toast.show();
                 getActivity().startService(new Intent(getActivity(),MusicService.class));
             }
         });
@@ -44,6 +48,8 @@ public class SoundFragment extends Fragment {
         b_toff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast toast = Toast.makeText(getContext(), "You stopped the music", Toast.LENGTH_SHORT);
+                toast.show();
                 getActivity().stopService(new Intent(getActivity(),MusicService.class));
             }
         });
