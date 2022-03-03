@@ -23,6 +23,28 @@ public class CreditsActivity extends AppCompatActivity {
         Adapter adaptadorSuperior = getAdaptador (R.id.rvSuperior, elementosSuperiores);
     }
 
+
+
+    public Adapter getAdaptador (int idRecyclerView, ArrayList<String> lista){
+        RecyclerView rv = findViewById(idRecyclerView);
+        LinearLayoutManager managerLayout = new LinearLayoutManager(this);
+        rv.setLayoutManager(managerLayout);
+        Adapter adaptador = new Adapter(this, lista);
+        rv.setAdapter(adaptador);
+        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
+            @Override protected int getVerticalSnapPreference() {
+                return LinearSmoothScroller.SNAP_TO_START;
+            }
+            @Override
+            protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+                return MILLISECONDS_PER_INCH / displayMetrics.densityDpi;
+            }
+        };
+        smoothScroller.setTargetPosition(lista.size() - 1);
+        managerLayout.startSmoothScroll(smoothScroller);
+        return adaptador;
+    }
+
     public void inicializaElementosListado(ArrayList<String> elementosSuperiores) {
         elementosSuperiores.add("DIRECTOR");
         elementosSuperiores.add("MIGUEL MARTINEZ");
@@ -55,25 +77,5 @@ public class CreditsActivity extends AppCompatActivity {
         elementosSuperiores.add("SIMON");
         elementosSuperiores.add(" ");
 
-    }
-
-    public Adapter getAdaptador (int idRecyclerView, ArrayList<String> lista){
-        RecyclerView rv = findViewById(idRecyclerView);
-        LinearLayoutManager managerLayout = new LinearLayoutManager(this);
-        rv.setLayoutManager(managerLayout);
-        Adapter adaptador = new Adapter(this, lista);
-        rv.setAdapter(adaptador);
-        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
-            @Override protected int getVerticalSnapPreference() {
-                return LinearSmoothScroller.SNAP_TO_START;
-            }
-            @Override
-            protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
-                return MILLISECONDS_PER_INCH / displayMetrics.densityDpi;
-            }
-        };
-        smoothScroller.setTargetPosition(lista.size() - 1);
-        managerLayout.startSmoothScroll(smoothScroller);
-        return adaptador;
     }
 }

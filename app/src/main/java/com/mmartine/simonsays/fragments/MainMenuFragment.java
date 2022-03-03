@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.mmartine.simonsays.CreditsActivity;
+import com.mmartine.simonsays.GameActivity;
 import com.mmartine.simonsays.R;
 
 public class MainMenuFragment extends Fragment {
@@ -34,7 +35,7 @@ public class MainMenuFragment extends Fragment {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CreditsActivity.class);
+                Intent intent = new Intent(getContext(), GameActivity.class);
                 startActivity(intent);
             }
         });
