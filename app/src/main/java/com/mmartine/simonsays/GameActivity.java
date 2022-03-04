@@ -73,15 +73,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
         fillArray(simon, 3);
-
-
-//        String listString = simon.stream().map(Object::toString)
-//                .collect(Collectors.joining(", "));
-//        Toast toast = Toast.makeText(getApplicationContext(),listString, Toast.LENGTH_SHORT);
-//        toast.show();
-
-
-        printArray(simon, ib_enun, getApplicationContext());
+        printArray(simon, getApplicationContext());
 
     }
 
@@ -103,30 +95,34 @@ public class GameActivity extends AppCompatActivity {
             points += simon.size() * 100;
             Toast ifx = Toast.makeText(context, " Tu puntuacion es de: "+ String.valueOf(points) , Toast.LENGTH_LONG);
             ifx.show();
+            user.clear();
+            fillArray(simon, 1);
+            printArray(simon, context);
             //idk.setText(points);
         }
-
-
-
+        else{
+            Intent intent = new Intent(context, EndActivity.class);
+            intent.putExtra("points", points);
+        }
     }
 
-    private static void printArray(ArrayList<Integer> simon, View view, Context context){
+    private static void printArray(ArrayList<Integer> simon, Context context){
         Handler handler = new Handler();
 
                 for (int i = 0; i < simon.size(); i++) {
                     Integer n = simon.get(i);
                     Toast ifx = Toast.makeText(context, String.valueOf(n) + " en la posicion: "+ String.valueOf(i) , Toast.LENGTH_LONG);
                     ifx.show();
-                    if (n == 0)
-                        ((ImageButton) view).setImageResource(R.drawable.red);
-
-                    else if (n == 1)
-                        ((ImageButton) view).setImageResource(R.drawable.yellow);
-                    else if (n == 2)
-                        ((ImageButton) view).setImageResource(R.drawable.green);
-                    else if (n == 3)
-                        ((ImageButton) view).setImageResource(R.drawable.blue);
-                    ((ImageButton) view).setImageResource(R.drawable.black);
+//                    if (n == 0)
+//                        ((ImageButton) view).setImageResource(R.drawable.red);
+//
+//                    else if (n == 1)
+//                        ((ImageButton) view).setImageResource(R.drawable.yellow);
+//                    else if (n == 2)
+//                        ((ImageButton) view).setImageResource(R.drawable.green);
+//                    else if (n == 3)
+//                        ((ImageButton) view).setImageResource(R.drawable.blue);
+//                    ((ImageButton) view).setImageResource(R.drawable.black);
                 }
     }
 
