@@ -24,7 +24,7 @@ public class SQLAdmin extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int lastVersion, int newVersion) {
 
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS scores");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS records");
 
         sqLiteDatabase.execSQL(sqlCreate);
     }

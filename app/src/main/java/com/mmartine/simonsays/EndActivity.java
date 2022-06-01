@@ -1,12 +1,11 @@
 package com.mmartine.simonsays;
 
-import static java.lang.Integer.parseInt;
 
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +16,8 @@ public class EndActivity extends AppCompatActivity {
 
     private SQLiteDatabase bd;
 
+    Button b_up;
+    Button b_out;
     EditText et_name;
     TextView tv_score;
     TextView tv_out;
@@ -28,16 +29,32 @@ public class EndActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         et_name =findViewById(R.id.et_name);
+        tv_score = findViewById(R.id.tv_score);
+        tv_out = findViewById(R.id.tv_out);
+        b_out = findViewById(R.id.b_out);
+        b_up = findViewById(R.id.b_upl);
         SQLAdmin adminSQLite = new SQLAdmin(this, "records", null, 1);
         bd = adminSQLite.getWritableDatabase();
         Bundle bundle = getIntent().getExtras();
 
         if(bundle!=null)
         {
-            String s =(String) bundle.get("name");
+            String s =(String) bundle.get("points");
             tv_score.setText(s);
-            score = parseInt(s);
+            score = Integer.parseInt(s);
         }
+        b_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                query(v);
+            }
+        });
+        b_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                altaSQL();
+            }
+        });
 
     }
 
@@ -48,7 +65,6 @@ public class EndActivity extends AppCompatActivity {
     }
 
     public void altaSQL() {
-        //Si la base de datos se abrió correctamente
         if(bd != null)
         {
             String name = et_name.getText().toString();
@@ -59,16 +75,14 @@ public class EndActivity extends AppCompatActivity {
         }
     }
 
-    public void consulta(View v) {
+    public void query(View v) {
         String name = et_name.getText().toString();
         String str = "";
         Cursor c = bd.rawQuery(
                 "select * from records" + " ORDER BY score"+
                         " LIMIT 5", null);
 
-        // Asegurar que existe, al menos, un registro
         if (c.moveToFirst()) {
-            // Recorrer el cursor hasta que no haya más registros
             do {
                 String qname= c.getString(0);
                 String qscore = c.getString(1);
@@ -76,7 +90,7 @@ public class EndActivity extends AppCompatActivity {
             } while(c.moveToNext());
             tv_out.setText(str);
         }else{
-            Toast.makeText(this, "No existe un artículo con dicha descripción",
+            Toast.makeText(this, "There isn't any record yet",
                     Toast.LENGTH_SHORT).show();
         }
     }

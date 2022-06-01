@@ -5,21 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class GameActivity extends AppCompatActivity {
-    private ArrayList<Integer> simon = new ArrayList<Integer>();
-    private ArrayList<Integer> user = new ArrayList<Integer>();
-    private ImageButton ib_enun;
+    static private ArrayList<Integer> simon = new ArrayList<Integer>();
+    static private ArrayList<Integer> user = new ArrayList<Integer>();
+    private Button b_trap;
     private ImageButton ib_red;
     private ImageButton ib_yellow;
     private ImageButton ib_green;
@@ -31,11 +26,12 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        ib_enun = findViewById(R.id.ib_enun);
+        b_trap = findViewById(R.id.b_trap);
         ib_red = findViewById(R.id.ib_red);
         ib_yellow = findViewById(R.id.ib_yellow);
         ib_green = findViewById(R.id.ib_green);
         ib_blue = findViewById(R.id.ib_blue);
+
 
         ib_red.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +67,16 @@ public class GameActivity extends AppCompatActivity {
                 checkSizes(simon, user, getApplicationContext());
             }
         });
+        //rebuildear el gradle
+        b_trap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EndActivity.class);
+                intent.putExtra("points", points);
+                startActivity(intent);
+
+            }
+        });
 
         fillArray(simon, 3);
         printArray(simon, getApplicationContext());
@@ -87,6 +93,7 @@ public class GameActivity extends AppCompatActivity {
         boolean fin = false;
         for (int i = 0; i < simon.size(); i++) {
             if(simon.get(i) != user.get(i)){
+                Toast ifx = Toast.makeText(context, "Te has equivocado con una puntuacion de: "+ String.valueOf(points) , Toast.LENGTH_LONG);
                 fin = true;
                 break;
             }
@@ -98,17 +105,15 @@ public class GameActivity extends AppCompatActivity {
             user.clear();
             fillArray(simon, 1);
             printArray(simon, context);
-            //idk.setText(points);
         }
         else{
             Intent intent = new Intent(context, EndActivity.class);
             intent.putExtra("points", points);
+            context.startActivity(intent);
         }
     }
 
     private static void printArray(ArrayList<Integer> simon, Context context){
-        Handler handler = new Handler();
-
                 for (int i = 0; i < simon.size(); i++) {
                     Integer n = simon.get(i);
                     Toast ifx = Toast.makeText(context, String.valueOf(n) + " en la posicion: "+ String.valueOf(i) , Toast.LENGTH_LONG);
